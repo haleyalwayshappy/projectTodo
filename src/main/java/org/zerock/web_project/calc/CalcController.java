@@ -18,6 +18,6 @@ public class CalcController extends HttpServlet {
         System.out.printf(" num1: %s", num1);
         System.out.printf(" num2: %s", num2);
 
-        response.sendRedirect("/index");
+        response.sendRedirect("/calcResult");
     }
 }
