@@ -1,5 +1,6 @@
 package org.zerock.dao;
 
+import java.sql.SQLOutput;
 import java.util.List;
 import lombok.Cleanup;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,6 +13,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
+import java.util.concurrent.ExecutionException;
 
 public class TodoDAOTests {
     private TodoDAO todoDAO;
@@ -44,5 +46,22 @@ public class TodoDAOTests {
         list.forEach(vo-> System.out.println(vo));
     }
 
+    @Test
+    public void testSelectOne() throws Exception{
+        Long tno =2L;
 
+        TodoVO vo = todoDAO.selectOne(tno);
+        System.out.println("testSelectOne"+vo);
+    }
+
+    @Test
+    public void testUpdateOne() throws Exception{
+        TodoVO todoVO = TodoVO.builder()
+                .tno(1L)
+                .title("sampleTiTle...")
+                .dueDate(LocalDate.of(2022,12,31))
+                .finished(true)
+                .build();
+        todoDAO.updateOne(todoVO);
+    }
 }

@@ -47,13 +47,24 @@ mariadb를 사용해서 webdb database를 만들고 연결해주는데 성공했
 나옴 이거 build.gradle > dependencies에다가 생성해주면 된다.
 (전에 해당부분에서 막혔어서... 이클립스에서 인텔리제이로 갈아탐)
 
-#### 5. DAO 작성방법 
+#### 5. DAO 작성방법 (getTime , insert, selectAll )
 기존에 내가 사용하던 방식(회사코드나 자바로 하던 프로젝트들)은 따로 xml파일을 생성해서 그안에서 쿼리문을 적는 방식이었다면
 여기서 배우는 방식은 스프링 프레임워크를 이용하는 방식이다. 
 처음에는 익숙하지 않겠지만 반복을 통해서 공부하다보면 익숙해질듯 (오히려 편할수도) 
    
 
--- 기회가 된다면 vo 와 dto의 차이 공부 
+-- 기회가 된다면 vo 와 dto의 차이 공부
+`https://www.youtube.com/watch?v=z5fUkck_RZM`
+`https://www.notion.so/DTO-VO-bf8b7f903ce547bb82662de486016d68`
 
+2023.01.03 
+#### 1. DAO > select one , delete, update
+PreparedStatement 클래스 
+; SQL 구문을 실행하는 역할, 스스로는 sql 구문을 이해못한다 > 전달해주는 역할
+sql 관리 o + 연결정보 x 
 
-131p 까지 진행함 
+#### 2. MVC 와 JDBC의 결합 
+@AllArgsConstructor //여기에 필드에 쓴 모든생성자만 만들어줌
+@NoArgsConstructor //기본 생성자를 만들어줌
+
+enum > 

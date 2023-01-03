@@ -12,7 +12,9 @@
     <title>Title</title>
 </head>
 <body>
-    <h3> 기본 처리 방법 </h3>
+    <h1>List Page</h1>
+    ${list}
+  <%--  <h3> 기본 처리 방법 </h3>
     <h1>List page</h1>
     <c:forEach var="dto" items="${list}">
         <li>${dto}</li>
@@ -52,7 +54,7 @@
             </c:if>
         </c:forEach>
     </ul>
-
+--%>
 <%--page : 69p > 81p 진행함 + jstl 추가함 + jstl사용법 추가 87p --%>
 </body>
 
