@@ -2,6 +2,7 @@ package org.zerock.dao;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.zerock.web_project.todo.domain.TodoVO;
 import org.zerock.web_project.todo.dto.TodoDTO;
 import org.zerock.web_project.todo.service.TodoService;
 
@@ -17,11 +18,12 @@ public class TodoServiceTests {
 
     @Test
     public void testRegister()throws Exception{
-        TodoDTO todoDTO = TodoDTO.builder()
-                .title("JDBC test Title")
+                TodoDTO todoDTO = TodoDTO.builder()
+                .title("JDBC test Title23")
                 .dueDate(LocalDate.now())
                 .build();
 
         todoService.register(todoDTO);
     }
+
 }
