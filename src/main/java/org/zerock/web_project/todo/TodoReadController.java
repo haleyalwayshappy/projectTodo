@@ -1,7 +1,8 @@
 package org.zerock.web_project.todo;
 
+import lombok.extern.log4j.Log4j2;
 import org.zerock.web_project.todo.dto.TodoDTO;
-import org.zerock.web_project.todo.service.TodoService2;
+import org.zerock.web_project.todo.service.TodoService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,18 +11,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+@Log4j2
 @WebServlet(name="todoReadController", urlPatterns = "/todo/read")
 public class TodoReadController extends HttpServlet {
+
+    private TodoService todoService = TodoService.INSTANCE;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        System.out.println("/todo/read");
-        // /todo/read?tno=123
+       try{
         Long tno  =Long.parseLong(request.getParameter("tno"));
-        TodoDTO dto = TodoService2.INSTANCE.get(tno);
+        TodoDTO todoDTO = todoService.get(tno);
 
-        request.setAttribute("dto",dto);
+        //데이터 담기
+           request.setAttribute("dto",todoDTO);
+           request.getRequestDispatcher("/WEB-INF/todo/read.jsp").forward(request,response);
 
-        request.getRequestDispatcher("/WEB-INF/todo/read.jsp").forward(request,response);
-//    page : 89p
+       } catch (Exception e) {
+            log.error(e.getMessage());
+            throw new ServletException("read error");
+       }
     }
 }

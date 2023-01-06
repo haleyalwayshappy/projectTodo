@@ -9,11 +9,18 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-    <title>Title</title>
+    <title>Todo List</title>
 </head>
 <body>
-    <h1>List Page</h1>
-    ${list}
+    <h1>Todo List</h1>
+
+    <ul>
+        <c:forEach items="${dtoList}" var="dto">
+            <li>${dto}</li>
+        </c:forEach>
+    </ul>
+
+
   <%--  <h3> 기본 처리 방법 </h3>
     <h1>List page</h1>
     <c:forEach var="dto" items="${list}">
