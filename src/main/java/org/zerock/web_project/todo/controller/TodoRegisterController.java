@@ -1,4 +1,4 @@
-package org.zerock.web_project.todo;
+package org.zerock.web_project.todo.controller;
 
 import jdk.vm.ci.meta.Local;
 import lombok.extern.java.Log;

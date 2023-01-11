@@ -111,18 +111,29 @@ public class TodoDAO {
 
 
 //    TODO : 컬럼 수정
-    public void updateOne(TodoVO todoVO) throws Exception{
-        String sql = "update tbl_todo set title=?, dueDate=? , finished=? where tno =?" ;
+//    public void updateOne(TodoVO todoVO) throws Exception{
+//        String sql = "update tbl_todo set title=?, dueDate=? , finished=? where tno =?" ;
+//
+//        @Cleanup Connection connection = ConnectionUtil.INSTANCE.getConnection();
 
+//        @Cleanup PreparedStatement preparedStatement = connection.prepareStatement(sql);
+//
+//        preparedStatement.setString(1,todoVO.getTitle());
+//        preparedStatement.setDate(2,Date.valueOf(todoVO.getDueDate()));
+//        preparedStatement.setBoolean(3,todoVO.isFinished());
+//        preparedStatement.setLong(4,todoVO.getTno());
+//
+//        preparedStatement.executeUpdate();
+//
+//    }
+
+    public void updateOne(TodoVO todoVO)throws Exception {
+        String sql = "update tbl_todo set title =?, dueDate = ?, finished = ? where tno =?";
         @Cleanup Connection connection = ConnectionUtil.INSTANCE.getConnection();
         @Cleanup PreparedStatement preparedStatement = connection.prepareStatement(sql);
-
-        preparedStatement.setString(1,todoVO.getTitle());
-        preparedStatement.setDate(2,Date.valueOf(todoVO.getDueDate()));
-        preparedStatement.setBoolean(3,todoVO.isFinished());
-        preparedStatement.setLong(4,todoVO.getTno());
-
-        preparedStatement.executeUpdate();
-
+        preparedStatement.setString(1, todoVO.getTitle());
+        preparedStatement.setDate(2, Date.valueOf(todoVO.getDueDate()));
+        preparedStatement.setBoolean(3, todoVO.isFinished());
+        preparedStatement.setLong(4, todoVO.getTno()); preparedStatement.executeUpdate();
     }
 }

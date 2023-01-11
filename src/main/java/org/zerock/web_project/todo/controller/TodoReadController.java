@@ -1,4 +1,4 @@
-package org.zerock.web_project.todo;
+package org.zerock.web_project.todo.controller;
 
 import lombok.extern.log4j.Log4j2;
 import org.zerock.web_project.todo.dto.TodoDTO;
