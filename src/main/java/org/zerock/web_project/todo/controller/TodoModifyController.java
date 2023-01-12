@@ -42,7 +42,7 @@ public class TodoModifyController extends HttpServlet {
         TodoDTO todoDTO = TodoDTO.builder()
                 .tno(Long.parseLong(request.getParameter("tno")))
                 .title(request.getParameter("title"))
-                .dueDate(LocalDate.parse(request.getParameter("duaDate"),DATEFORMATTER ))
+                .dueDate(LocalDate.parse(request.getParameter("dueDate"),DATEFORMATTER))
                 .finished(finishedStr !=null && finishedStr.equals("on"))
                 .build();
 
